@@ -32,12 +32,29 @@ export default function CheckoutPage() {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (step < 3) {
             setStep(step + 1);
         } else {
-            // Final submission logic
+            const orderNum = `AIR-${Math.floor(Math.random() * 900000) + 100000}`;
+
+            try {
+                // Send confirmation email
+                await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        customer: formData,
+                        items: items,
+                        total: grandTotal,
+                        orderNumber: orderNum,
+                    }),
+                });
+            } catch (error) {
+                console.error('Email notification failed:', error);
+            }
+
             setStep(4);
             clearCart();
         }
@@ -103,8 +120,8 @@ export default function CheckoutPage() {
                         {[1, 2, 3].map((s) => (
                             <div key={s} className="relative z-10 flex flex-col items-center gap-2">
                                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-colors ${step >= s
-                                        ? 'bg-primary-foreground text-primary border-primary-foreground'
-                                        : 'bg-primary text-primary-foreground/40 border-primary-foreground/20'
+                                    ? 'bg-primary-foreground text-primary border-primary-foreground'
+                                    : 'bg-primary text-primary-foreground/40 border-primary-foreground/20'
                                     }`}>
                                     {s}
                                 </div>
