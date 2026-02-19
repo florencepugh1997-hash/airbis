@@ -1,5 +1,6 @@
 import { HeroSection } from '@/components/hero-section';
 import { FeaturedProducts } from '@/components/featured-products';
+import { InsightsSection } from '@/components/insights-section';
 import { ValueProposition } from '@/components/value-proposition';
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <main className="flex-1">
       <HeroSection />
       <FeaturedProducts />
+      <InsightsSection />
       <ValueProposition />
     </main>
   );
