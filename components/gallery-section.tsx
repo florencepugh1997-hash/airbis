@@ -1,6 +1,8 @@
 'use client';
 
+import * as React from 'react';
 import Image from 'next/image';
+import Autoplay from 'embla-carousel-autoplay';
 import {
     Carousel,
     CarouselContent,
@@ -34,6 +36,10 @@ const galleryImages = [
 ];
 
 export function GallerySection() {
+    const plugin = React.useRef(
+        Autoplay({ delay: 1500, stopOnInteraction: false })
+    );
+
     return (
         <section className="py-24 bg-white relative overflow-hidden">
             <div className="container mx-auto px-4">
@@ -50,17 +56,20 @@ export function GallerySection() {
                     </div>
                 </div>
 
-                <div className="relative px-12">
+                <div className="relative px-0 md:px-12">
                     <Carousel
+                        plugins={[plugin.current]}
                         opts={{
                             align: 'start',
                             loop: true,
                         }}
                         className="w-full"
+                        onMouseEnter={plugin.current.stop}
+                        onMouseLeave={plugin.current.reset}
                     >
                         <CarouselContent className="-ml-4">
                             {galleryImages.map((image, index) => (
-                                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                                <CarouselItem key={index} className="pl-4 basis-[85%] md:basis-1/2 lg:basis-1/3">
                                     <Card className="border-none overflow-hidden group bg-[#f8fafc]">
                                         <CardContent className="p-0">
                                             <div className="relative aspect-[4/3] overflow-hidden">
