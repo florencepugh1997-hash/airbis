@@ -44,7 +44,7 @@ export default function CheckoutPage() {
 
             try {
                 // Send confirmation email
-                await fetch('/api/send-email', {
+                const response = await fetch('/api/send-email', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -54,8 +54,14 @@ export default function CheckoutPage() {
                         orderNumber: orderNum,
                     }),
                 });
-            } catch (error) {
+
+                if (!response.ok) {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Failed to send confirmation email');
+                }
+            } catch (error: any) {
                 console.error('Email notification failed:', error);
+                alert(`Note: The order was placed, but the confirmation email could not be sent: ${error.message}. If you are in Sandbox mode, please ensure you are using your registered email address.`);
             }
 
             setStep(4);

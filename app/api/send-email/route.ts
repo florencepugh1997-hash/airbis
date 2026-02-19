@@ -5,6 +5,14 @@ export async function POST(req: Request) {
   try {
     const { customer, items, total, orderNumber } = await req.json();
 
+    console.log(`[Email API] Processing order #${orderNumber} for ${customer.email}`);
+
+    // Verify SMTP variables are present
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error('[Email API] Missing SMTP configuration variables');
+      return NextResponse.json({ error: 'Server configuration error' }, { status: 500 });
+    }
+
     // Configure the transporter using environment variables
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -18,6 +26,15 @@ export async function POST(req: Request) {
         rejectUnauthorized: false
       }
     });
+
+    // Verify connection configuration
+    try {
+      await transporter.verify();
+      console.log('[Email API] SMTP Connection verified successfully');
+    } catch (verifyError) {
+      console.error('[Email API] SMTP Verification failed:', verifyError);
+      throw new Error('Failed to connect to email server');
+    }
 
     // Create a detailed item list for the email
     const itemsHtml = items.map((item: any) => `
@@ -101,6 +118,7 @@ export async function POST(req: Request) {
       `;
 
     // Send to Customer
+    console.log(`[Email API] Sending confirmation to customer: ${customer.email}`);
     await transporter.sendMail({
       from: `"Airbis Components" <${process.env.FROM_EMAIL}>`,
       to: customer.email,
@@ -109,6 +127,7 @@ export async function POST(req: Request) {
     });
 
     // Send to Admin (Kevinfeige7110@gmail.com)
+    console.log('[Email API] Sending notification to admin');
     await transporter.sendMail({
       from: `"Airbis System" <${process.env.FROM_EMAIL}>`,
       to: "Kevinfeige7110@gmail.com",
@@ -116,9 +135,10 @@ export async function POST(req: Request) {
       html: generateEmailHtml(true),
     });
 
+    console.log('[Email API] All notifications sent successfully');
     return NextResponse.json({ message: 'Notifications sent successfully' }, { status: 200 });
   } catch (error: any) {
-    console.error('Failed to process notifications:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error('[Email API] Error occurred:', error);
+    return NextResponse.json({ error: error.message || 'Notification failed' }, { status: 500 });
   }
 }
