@@ -27,6 +27,8 @@ export default function CheckoutPage() {
         cvv: '',
     });
 
+    const [confirmedOrderNumber, setConfirmedOrderNumber] = useState('');
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
@@ -38,6 +40,7 @@ export default function CheckoutPage() {
             setStep(step + 1);
         } else {
             const orderNum = `AIR-${Math.floor(Math.random() * 900000) + 100000}`;
+            setConfirmedOrderNumber(orderNum);
 
             try {
                 // Send confirmation email
@@ -82,7 +85,7 @@ export default function CheckoutPage() {
                     <h1 className="text-4xl font-bold mb-4">Order Confirmed!</h1>
                     <p className="text-xl text-muted-foreground mb-8">
                         Thank you for your purchase. We've sent a confirmation email to {formData.email}.
-                        Your order number is #AIR-{Math.floor(Math.random() * 900000) + 100000}.
+                        Your order number is #<strong>{confirmedOrderNumber}</strong>.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/shop">

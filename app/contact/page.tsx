@@ -97,9 +97,11 @@ export default function ContactPage() {
                                 ></textarea>
                             </div>
 
-                            <Button className="w-full md:w-auto px-8 bg-[#0a1e3d] hover:bg-[#0f2d5a]">
-                                Send Message
-                            </Button>
+                            <a href="mailto:Kevinfeige7110@gmail.com" className="w-full md:w-auto inline-block">
+                                <Button className="w-full md:w-auto px-8 bg-[#0a1e3d] hover:bg-accent text-white" type="button">
+                                    Send Message
+                                </Button>
+                            </a>
                         </form>
                     </div>
                 </div>

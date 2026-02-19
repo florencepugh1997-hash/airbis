@@ -27,8 +27,7 @@ export const metadata: Metadata = {
     description: 'The premier destination for certified aircraft components and aerospace parts.',
     type: 'website',
   },
-},
-}
+};
 
 export default function RootLayout({
   children,
