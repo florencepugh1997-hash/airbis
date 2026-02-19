@@ -32,18 +32,18 @@ export function HeroSection() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link href="/shop">
-              <Button 
-                size="lg" 
-                className="bg-white text-primary hover:bg-primary-foreground gap-2 w-full sm:w-auto"
+              <Button
+                size="lg"
+                className="bg-accent text-accent-foreground hover:bg-accent/90 gap-2 w-full sm:w-auto font-bold shadow-lg"
               >
                 Shop Now
                 <ArrowRight size={20} />
               </Button>
             </Link>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="outline"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 w-full sm:w-auto"
+              className="border-accent text-accent hover:bg-accent/10 w-full sm:w-auto font-bold"
             >
               Learn More
             </Button>

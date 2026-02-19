@@ -45,10 +45,10 @@ export function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm font-medium text-[#0a1e3d] hover:text-blue-600 transition-colors relative group py-2"
+                className="text-sm font-medium text-[#0a1e3d] hover:text-accent transition-colors relative group py-2"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full rounded-full"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full rounded-full"></span>
               </Link>
             ))}
           </div>
@@ -57,19 +57,19 @@ export function Navbar() {
           <div className="flex items-center gap-6">
             <Link
               href="/cart"
-              className="relative text-[#0a1e3d] hover:text-blue-600 transition-colors"
+              className="relative text-[#0a1e3d] hover:text-accent transition-colors"
               aria-label="Shopping cart"
             >
               <ShoppingCart size={24} strokeWidth={2} />
               {itemCount > 0 && (
-                <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse shadow-sm">
+                <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center animate-pulse shadow-sm">
                   {itemCount}
                 </span>
               )}
             </Link>
 
             <button
-              className="md:hidden text-[#0a1e3d] hover:text-blue-600 transition-colors"
+              className="md:hidden text-[#0a1e3d] hover:text-accent transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -86,7 +86,7 @@ export function Navbar() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-base font-medium text-[#0a1e3d] hover:text-blue-600 hover:bg-blue-50 transition-colors px-4 py-3 rounded-lg block"
+                  className="text-base font-medium text-[#0a1e3d] hover:text-accent hover:bg-accent/10 transition-colors px-4 py-3 rounded-lg block"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}

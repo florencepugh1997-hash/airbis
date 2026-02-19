@@ -10,7 +10,7 @@ export function SupportWidget() {
         <div className="fixed bottom-6 right-6 z-50">
             <a
                 href="mailto:Kevinfeige7110@gmail.com"
-                className="flex items-center gap-2 bg-[#0a1e3d] text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition-all duration-300 group hover:scale-105"
+                className="flex items-center gap-2 bg-[#0a1e3d] text-white p-4 rounded-full shadow-lg hover:bg-accent transition-all duration-300 group hover:scale-105"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 aria-label="Contact Support"
