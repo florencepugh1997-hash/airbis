@@ -2,91 +2,123 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(req: Request) {
-    try {
-        const { customer, items, total, orderNumber } = await req.json();
+  try {
+    const { customer, items, total, orderNumber } = await req.json();
 
-        // Configure the transporter using environment variables
-        const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: parseInt(process.env.SMTP_PORT || '587'),
-            secure: process.env.SMTP_PORT === '465', // true for 465, false for other ports
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-            },
-            tls: {
-                rejectUnauthorized: false // Often helpful for local dev/certain providers
-            }
-        });
+    // Configure the transporter using environment variables
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || '587'),
+      secure: process.env.SMTP_PORT === '465',
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
 
-        // Create a detailed item list for the email
-        const itemsHtml = items.map((item: any) => `
-      <tr style="border-bottom: 1px solid #eee;">
-        <td style="padding: 12px 0;">${item.product.name}</td>
-        <td style="padding: 12px 0; text-align: center;">${item.quantity}</td>
-        <td style="padding: 12px 0; text-align: right;">$${(item.product.price * item.quantity).toLocaleString()}</td>
+    // Create a detailed item list for the email
+    const itemsHtml = items.map((item: any) => `
+      <tr style="border-bottom: 1px solid #efefef;">
+        <td style="padding: 15px 0; font-size: 14px; color: #333;">
+            <div style="font-weight: bold; margin-bottom: 4px;">${item.product.name}</div>
+            <div style="font-size: 12px; color: #666;">Code: ${item.product.id?.substring(0, 8) || 'N/A'}</div>
+        </td>
+        <td style="padding: 15px 0; text-align: center; color: #333;">${item.quantity}</td>
+        <td style="padding: 15px 0; text-align: right; font-weight: bold; color: #0a1e3d;">$${(item.product.price * item.quantity).toLocaleString()}</td>
       </tr>
     `).join('');
 
-        const mailOptions = {
-            from: `"Airbis Components" <${process.env.FROM_EMAIL}>`,
-            to: customer.email,
-            subject: `Order Confirmation - ${orderNumber}`,
-            html: `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #333;">
-          <div style="text-align: center; padding-bottom: 20px; border-bottom: 2px solid #0a1e3d;">
-            <h1 style="color: #0a1e3d; margin: 0;">AIRBIS</h1>
-            <p style="color: #666; font-size: 14px; margin-top: 5px;">Premium Aircraft Components</p>
+    const generateEmailHtml = (isForAdmin: boolean) => `
+        <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; padding: 0; color: #333; background-color: #f9f9f9;">
+          <div style="background-color: #0a1e3d; padding: 40px 20px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; letter-spacing: 4px; font-size: 28px;">AIRBIS</h1>
+            <p style="color: #60a5fa; font-size: 12px; margin-top: 5px; text-transform: uppercase; font-weight: bold; letter-spacing: 2px;">Premium Aircraft Components</p>
           </div>
           
-          <div style="padding: 30px 0;">
-            <h2 style="margin-top: 0;">Thank you for your order, ${customer.firstName}!</h2>
-            <p>We've received your order and are processing it. Your order number is <strong>${orderNumber}</strong>.</p>
+          <div style="padding: 40px 30px; background-color: #ffffff;">
+            ${isForAdmin
+        ? `<h2 style="color: #0a1e3d; margin-top: 0;">New Order Received!</h2>
+                   <p style="font-size: 16px; line-height: 1.6;">A new order has been placed. Order Number: <strong>#${orderNumber}</strong></p>`
+        : `<h2 style="color: #0a1e3d; margin-top: 0;">Thank you for your order, ${customer.firstName}!</h2>
+                   <p style="font-size: 16px; line-height: 1.6;">We've received your request and our logistics team is already preparing your shipment. Your order number is <strong>#${orderNumber}</strong>.</p>`
+      }
             
-            <h3 style="margin-top: 30px; padding-bottom: 10px; border-bottom: 1px solid #eee;">Order Summary</h3>
-            <table style="width: 100%; border-collapse: collapse;">
-              <thead>
-                <tr style="color: #666; font-size: 12px; text-transform: uppercase;">
-                  <th style="text-align: left; padding: 10px 0;">Item</th>
-                  <th style="text-align: center; padding: 10px 0;">Qty</th>
-                  <th style="text-align: right; padding: 10px 0;">Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${itemsHtml}
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="2" style="padding: 20px 0 5px; font-weight: bold; text-align: right;">Total:</td>
-                  <td style="padding: 20px 0 5px; font-weight: bold; text-align: right; font-size: 18px; color: #0a1e3d;">$${total.toLocaleString()}</td>
-                </tr>
-              </tfoot>
-            </table>
+            <div style="margin-top: 40px; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden;">
+                <div style="background-color: #f8fafc; padding: 15px 20px; border-bottom: 1px solid #e5e7eb;">
+                    <h3 style="margin: 0; font-size: 14px; text-transform: uppercase; color: #64748b;">Order Summary</h3>
+                </div>
+                <div style="padding: 0 20px;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                      <thead>
+                        <tr style="color: #94a3b8; font-size: 11px; text-transform: uppercase; border-bottom: 1px solid #e5e7eb;">
+                          <th style="text-align: left; padding: 10px 0;">Component</th>
+                          <th style="text-align: center; padding: 10px 0;">Qty</th>
+                          <th style="text-align: right; padding: 10px 0;">Subtotal</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        ${itemsHtml}
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td colspan="2" style="padding: 20px 0 10px; font-weight: bold; text-align: right; color: #64748b;">Grand Total:</td>
+                          <td style="padding: 20px 0 10px; font-weight: 900; text-align: right; font-size: 20px; color: #0a1e3d;">$${total.toLocaleString()}</td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px; display: grid; grid-template-cols: 1fr 1fr; gap: 20px;">
+                <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb;">
+                    <h4 style="margin: 0 0 10px 0; font-size: 12px; color: #64748b; text-transform: uppercase;">Shipping Address</h4>
+                    <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #1e293b;">
+                      <strong>${customer.firstName} ${customer.lastName}</strong><br>
+                      ${customer.address}<br>
+                      ${customer.city}, ${customer.zipCode}<br>
+                      ${customer.country}
+                    </p>
+                </div>
+                ${isForAdmin ? `
+                <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb; margin-top: 15px;">
+                    <h4 style="margin: 0 0 10px 0; font-size: 12px; color: #64748b; text-transform: uppercase;">Customer Contact</h4>
+                    <p style="margin: 0; font-size: 14px; color: #1e293b;">${customer.email}</p>
+                </div>` : ''}
+            </div>
           </div>
           
-          <div style="background: #f8f9fa; padding: 20px; rounded-lg: 8px;">
-            <h4 style="margin: 0 0 10px 0;">Shipping to:</h4>
-            <p style="margin: 0; font-size: 14px;">
-              ${customer.firstName} ${customer.lastName}<br>
-              ${customer.address}<br>
-              ${customer.city}, ${customer.zipCode}<br>
-              ${customer.country}
-            </p>
-          </div>
-          
-          <div style="margin-top: 40px; text-align: center; color: #999; font-size: 12px; border-top: 1px solid #eee; padding-top: 20px;">
-            <p>If you have any questions, please contact our support desk.</p>
-            <p>&copy; ${new Date().getFullYear()} Airbis Components. All rights reserved.</p>
+          <div style="padding: 30px; background-color: #0a1e3d; text-align: center; color: #94a3b8; font-size: 12px;">
+            <p style="margin-bottom: 10px; color: #ffffff;">Precision. Reliability. Safety.</p>
+            <p style="margin-bottom: 20px;">If you have any questions, please contact our 24/7 technical support desk.</p>
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                <p>&copy; ${new Date().getFullYear()} Airbis Components. All rights reserved.</p>
+            </div>
           </div>
         </div>
-      `,
-        };
+      `;
 
-        await transporter.sendMail(mailOptions);
+    // Send to Customer
+    await transporter.sendMail({
+      from: `"Airbis Components" <${process.env.FROM_EMAIL}>`,
+      to: customer.email,
+      subject: `Order Confirmation - #${orderNumber}`,
+      html: generateEmailHtml(false),
+    });
 
-        return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
-    } catch (error: any) {
-        console.error('Failed to send email:', error);
-        return NextResponse.json({ error: error.message }, { status: 500 });
-    }
+    // Send to Admin (Kevinfeige7110@gmail.com)
+    await transporter.sendMail({
+      from: `"Airbis System" <${process.env.FROM_EMAIL}>`,
+      to: "Kevinfeige7110@gmail.com",
+      subject: `NEW ORDER ALERT - #${orderNumber}`,
+      html: generateEmailHtml(true),
+    });
+
+    return NextResponse.json({ message: 'Notifications sent successfully' }, { status: 200 });
+  } catch (error: any) {
+    console.error('Failed to process notifications:', error);
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
 }
