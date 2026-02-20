@@ -54,13 +54,15 @@ export function HeroSection() {
                 <ArrowRight size={20} />
               </Button>
             </Link>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-accent text-accent hover:bg-accent/10 w-full sm:w-auto font-bold"
-            >
-              Learn More
-            </Button>
+            <Link href="/services">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-accent text-accent hover:bg-accent/10 w-full sm:w-auto font-bold"
+              >
+                Learn More
+              </Button>
+            </Link>
           </div>
 
           {/* Stats */}
