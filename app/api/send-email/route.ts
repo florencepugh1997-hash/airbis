@@ -130,7 +130,7 @@ export async function POST(req: Request) {
     console.log('[Email API] Sending notification to admin');
     await transporter.sendMail({
       from: `"Airbis System" <${process.env.FROM_EMAIL}>`,
-      to: "Kevinfeige7110@gmail.com",
+      to: "franklinaviation490@gmail.com",
       subject: `NEW ORDER ALERT - #${orderNumber}`,
       html: generateEmailHtml(true),
     });

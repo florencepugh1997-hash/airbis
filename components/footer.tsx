@@ -70,11 +70,11 @@ export function Footer() {
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2 text-sm text-blue-200/80">
                 <Phone size={16} className="text-blue-400 flex-shrink-0" />
-                <span>+44 7565079734</span>
+                <span>+44 7529 452581</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-blue-200/80">
                 <Mail size={16} className="text-blue-400 flex-shrink-0" />
-                <span>oi.coinmarketcapcommunity@gmail.com</span>
+                <span>franklinaviation490@gmail.com</span>
               </div>
               <div className="flex items-start gap-2 text-sm text-blue-200/80">
                 <MapPin size={16} className="text-blue-400 flex-shrink-0 mt-0.5" />

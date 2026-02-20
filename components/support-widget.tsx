@@ -38,7 +38,7 @@ export function SupportWidget() {
 
             {/* Support/Email Button */}
             <a
-                href="mailto:Kevinfeige7110@gmail.com"
+                href="mailto:franklinaviation490@gmail.com"
                 className="flex items-center gap-2 bg-[#0a1e3d] text-white p-4 rounded-full shadow-lg hover:bg-accent transition-all duration-300 group hover:scale-105"
                 onMouseEnter={() => setHoveredButton('support')}
                 onMouseLeave={() => setHoveredButton(null)}

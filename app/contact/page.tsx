@@ -25,14 +25,14 @@ export default function ContactPage() {
                                     <Phone className="text-blue-400 mt-1" />
                                     <div>
                                         <p className="font-semibold">Phone (24/7 AOG)</p>
-                                        <p className="text-blue-200">+44 7565079734</p>
+                                        <p className="text-blue-200">+44 7529 452581</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
                                     <Mail className="text-blue-400 mt-1" />
                                     <div>
                                         <p className="font-semibold">Email</p>
-                                        <p className="text-blue-200 break-all">oi.coinmarketcapcommunity@gmail.com</p>
+                                        <p className="text-blue-200 break-all">franklinaviation490@gmail.com</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
@@ -97,7 +97,7 @@ export default function ContactPage() {
                                 ></textarea>
                             </div>
 
-                            <a href="mailto:Kevinfeige7110@gmail.com" className="w-full md:w-auto inline-block">
+                            <a href="mailto:franklinaviation490@gmail.com" className="w-full md:w-auto inline-block">
                                 <Button className="w-full md:w-auto px-8 bg-[#0a1e3d] hover:bg-accent text-white" type="button">
                                     Send Message
                                 </Button>
