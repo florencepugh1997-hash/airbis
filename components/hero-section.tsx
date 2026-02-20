@@ -4,15 +4,29 @@ import { ArrowRight } from 'lucide-react';
 
 export function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-r from-primary to-primary/80 text-primary-foreground overflow-hidden">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-[#0a1e3d]/70 z-1" />
+
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 z-2">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent rounded-full mix-blend-multiply filter blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/50 rounded-full mix-blend-multiply filter blur-3xl"></div>
       </div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center">
+      <div className="relative container mx-auto px-4 py-20 md:py-32 flex flex-col items-center text-center z-10 text-white">
         <div className="max-w-4xl">
           {/* Badge */}
           <div className="inline-block bg-accent/20 text-accent px-4 py-2 rounded-full text-sm font-semibold mb-6">
