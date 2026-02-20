@@ -36,7 +36,7 @@ export function ChatPanel({ conversationId }: ChatPanelProps) {
       text: message,
       sender: 'admin',
       timestamp: new Date(),
-      senderName: 'Airbis Support',
+      senderName: 'Franklin Aviation Support',
     };
     addMessageToConversation(conversationId, newMessage);
   };
@@ -61,11 +61,10 @@ export function ChatPanel({ conversationId }: ChatPanelProps) {
           conversation.messages.map(msg => (
             <div key={msg.id} className={`flex ${msg.sender === 'admin' ? 'justify-end' : 'justify-start'}`}>
               <div
-                className={`max-w-xs rounded-lg px-4 py-2 text-sm ${
-                  msg.sender === 'admin'
+                className={`max-w-xs rounded-lg px-4 py-2 text-sm ${msg.sender === 'admin'
                     ? 'bg-accent text-accent-foreground'
                     : 'bg-muted text-muted-foreground'
-                }`}
+                  }`}
               >
                 <p className="text-xs font-semibold mb-1 opacity-70">{msg.senderName}</p>
                 <p className="break-words">{msg.text}</p>

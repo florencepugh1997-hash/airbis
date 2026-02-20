@@ -26,7 +26,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
   // Load cart from localStorage on mount
   useEffect(() => {
-    const savedCart = localStorage.getItem('airbis-cart');
+    const savedCart = localStorage.getItem('franklin-aviation-cart');
     if (savedCart) {
       try {
         setItems(JSON.parse(savedCart));
@@ -40,7 +40,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   // Save cart to localStorage whenever it changes
   useEffect(() => {
     if (isLoaded) {
-      localStorage.setItem('airbis-cart', JSON.stringify(items));
+      localStorage.setItem('franklin-aviation-cart', JSON.stringify(items));
     }
   }, [items, isLoaded]);
 

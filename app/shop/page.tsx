@@ -3,7 +3,7 @@ import { products } from '@/lib/products';
 import { ProductGrid } from '@/components/product-grid';
 
 export const metadata: Metadata = {
-  title: 'Shop - Airbis | Aircraft Components',
+  title: 'Shop - Franklin Aviation | Aircraft Components',
   description: 'Browse our collection of certified aircraft components and aerospace parts.',
 };
 

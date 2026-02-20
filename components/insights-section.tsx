@@ -6,7 +6,7 @@ export function InsightsSection() {
         {
             id: 1,
             title: "Essential for survival: The future of military rotorcraft",
-            description: "Stefan Thomé discusses the evolution of military rotorcraft, highlighting continuous development of Airbus helicopters and solutions.",
+            description: "Stefan Thomé discusses the evolution of military rotorcraft, highlighting continuous development of Franklin Aviation helicopters and solutions.",
             image: "/av.jpg",
             badges: ["Web Story", "Helicopters"],
             date: "11 February 2026",
@@ -15,7 +15,7 @@ export function InsightsSection() {
         },
         {
             id: 2,
-            title: "The brain behind the mission: Airbus and the future of collaborative combat",
+            title: "The brain behind the mission: Franklin Aviation and the future of collaborative combat",
             description: "Exploring the next generation of air power and the digital backbone of modern defence.",
             image: "/av2.jpg",
             badges: ["Web Story", "Defence"],
@@ -43,7 +43,7 @@ export function InsightsSection() {
         },
         {
             id: 5,
-            title: "Airbus A400M: Landing where others can't to deliver more aid",
+            title: "Franklin Aviation A400M: Landing where others can't to deliver more aid",
             image: "/av5.jpg",
             badges: ["Web Story", "Defence"],
             date: "28 January 2026",
@@ -55,7 +55,7 @@ export function InsightsSection() {
     return (
         <section className="py-20 bg-white">
             <div className="container mx-auto px-4">
-                {/* Header - Matching Airbus clean style */}
+                {/* Header - Matching Franklin Aviation clean style */}
                 <div className="flex items-center justify-between mb-10 border-b border-gray-100 pb-6">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0a1e3d] tracking-tight">
                         Strategic Insights

@@ -28,14 +28,14 @@ export function Navbar() {
             <div className="relative w-12 h-12 flex-shrink-0">
               <Image
                 src="/logo.png"
-                alt="Airbis Logo"
+                alt="Franklin Aviation Logo"
                 fill
                 className="object-contain"
                 sizes="48px"
               />
             </div>
             <span className="text-3xl sm:text-4xl font-bold text-[#0a1e3d] tracking-tight">
-              Airbis
+              Franklin Aviation
             </span>
           </Link>
 

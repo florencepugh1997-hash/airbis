@@ -82,7 +82,7 @@ export default function AdminLoginPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="name@airbis.com"
+                placeholder="name@franklin-aviation.com"
                 disabled={isLoading}
                 className="h-11 border-gray-200 focus:border-[#0a1e3d] focus:ring-[#0a1e3d]"
               />
@@ -113,7 +113,7 @@ export default function AdminLoginPage() {
       </Card>
 
       <div className="absolute bottom-6 text-center text-xs text-gray-400">
-        &copy; {new Date().getFullYear()} Airbis Aerospace. All rights reserved.
+        &copy; {new Date().getFullYear()} Franklin Aviation Aerospace. All rights reserved.
       </div>
     </div>
   );

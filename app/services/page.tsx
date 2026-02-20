@@ -67,7 +67,7 @@ export default function ServicesPage() {
                                 Integrated Logistics & <br /><span className="text-accent">Supply Chain Management</span>
                             </h2>
                             <p className="text-lg text-gray-600 leading-relaxed">
-                                Airbis provides more than just parts; we provide peace of mind. Our integrated supply chain solutions are designed to optimize your inventory and reduce operational costs.
+                                Franklin Aviation provides more than just parts; we provide peace of mind. Our integrated supply chain solutions are designed to optimize your inventory and reduce operational costs.
                             </p>
                             <ul className="space-y-4">
                                 {[

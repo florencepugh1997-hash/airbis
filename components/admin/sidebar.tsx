@@ -28,12 +28,12 @@ export function AdminSidebar() {
         <div className="w-9 h-9 relative rounded-full overflow-hidden bg-white/10">
           <Image
             src="/logo.png"
-            alt="Airbis Logo"
+            alt="Franklin Aviation Logo"
             fill
             className="object-cover"
           />
         </div>
-        <span>Airbis Admin</span>
+        <span>Franklin Aviation Admin</span>
       </div>
       <button onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -64,7 +64,7 @@ export function AdminSidebar() {
         <div className="p-6 border-b border-primary/30 hidden md:block">
           <h1 className="text-2xl font-bold flex items-center gap-2">
             <span className="text-2xl">🛡️</span>
-            Airbis Admin
+            Franklin Aviation Admin
           </h1>
           <p className="text-xs text-primary-foreground/70 mt-2 truncate" title={adminEmail || ''}>
             {adminEmail}

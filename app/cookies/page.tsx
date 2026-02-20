@@ -23,7 +23,7 @@ export default function CookiesPage() {
 
                     <h2 className="text-2xl font-bold text-[#0a1e3d]">Managing Cookies</h2>
                     <p>
-                        You can control or delete cookies through your browser settings. However, disabling essential cookies may limit your ability to use certain features of the Airbis platform.
+                        You can control or delete cookies through your browser settings. However, disabling essential cookies may limit your ability to use certain features of the Franklin Aviation platform.
                     </p>
                 </section>
             </div>

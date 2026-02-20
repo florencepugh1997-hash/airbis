@@ -25,7 +25,7 @@ export function ValueProposition() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-primary mb-4">
-            Why Choose Airbis
+            Why Choose Franklin Aviation
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             We're committed to providing the highest quality aerospace components and exceptional service to aviation professionals worldwide.

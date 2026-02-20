@@ -28,7 +28,7 @@ export default function AboutPage() {
                     <div>
                         <h2 className="text-3xl font-bold text-[#0a1e3d] mb-6">Our Mission</h2>
                         <p className="text-gray-600 mb-6 leading-relaxed">
-                            At Airbis, we are dedicated to streamlining the aerospace supply chain. Our mission is to provide airlines, MROs, and private operators with instant access to a vast inventory of certified aircraft parts, ensuring fleets remain operational and safe.
+                            At Franklin Aviation, we are dedicated to streamlining the aerospace supply chain. Our mission is to provide airlines, MROs, and private operators with instant access to a vast inventory of certified aircraft parts, ensuring fleets remain operational and safe.
                         </p>
                         <p className="text-gray-600 leading-relaxed">
                             We leverage cutting-edge technology and a global network of logistics partners to deliver critical components—from landing gear to avionics—with unprecedented speed and reliability.

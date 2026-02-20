@@ -7,7 +7,7 @@ export default function PrivacyPage() {
 
                 <section className="space-y-6">
                     <p>
-                        At Airbis, we prioritize the security and privacy of our clients. This policy outlines how we collect, use, and protect your data.
+                        At Franklin Aviation, we prioritize the security and privacy of our clients. This policy outlines how we collect, use, and protect your data.
                     </p>
 
                     <h2 className="text-2xl font-bold text-[#0a1e3d]">1. Data Collection</h2>

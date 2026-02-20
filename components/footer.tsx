@@ -15,13 +15,13 @@ export function Footer() {
               <div className="relative w-10 h-10 flex-shrink-0">
                 <Image
                   src="/logo2.jpeg"
-                  alt="Airbis Logo"
+                  alt="Franklin Aviation Logo"
                   fill
                   className="object-cover rounded-xl"
                 />
               </div>
               <span className="text-3xl font-bold text-white tracking-tight">
-                Airbis
+                Franklin Aviation
               </span>
             </Link>
             <p className="text-sm text-blue-200/80 leading-relaxed">
@@ -87,7 +87,7 @@ export function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-blue-200/60">
-            © {currentYear} Airbis. All rights reserved.
+            © {currentYear} Franklin Aviation. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-sm text-blue-200/60 hover:text-blue-300 transition-colors">

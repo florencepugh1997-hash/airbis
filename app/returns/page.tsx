@@ -44,7 +44,7 @@ export default function ReturnsPage() {
                         <h2 className="text-2xl font-bold text-[#0a1e3d] mb-4">Warranty</h2>
                         <p>
                             <strong>New Parts:</strong> Covered by OEM warranty (typically 1 year).<br />
-                            <strong>Overhauled/Serviceable Parts:</strong> Covered by Airbis warranty for 6 months or 500 flight hours, whichever comes first.
+                            <strong>Overhauled/Serviceable Parts:</strong> Covered by Franklin Aviation warranty for 6 months or 500 flight hours, whichever comes first.
                         </p>
                     </section>
                 </div>

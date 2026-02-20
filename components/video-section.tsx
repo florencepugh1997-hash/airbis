@@ -7,7 +7,7 @@ export function VideoSection() {
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-accent font-bold uppercase tracking-widest text-sm mb-4">Innovation in Motion</h2>
-                    <h3 className="text-4xl md:text-5xl font-bold mb-6">Experience the Airbis <span className="text-accent">Standard</span></h3>
+                    <h3 className="text-4xl md:text-5xl font-bold mb-6">Experience the Franklin Aviation <span className="text-accent">Standard</span></h3>
                     <p className="text-gray-300 max-w-2xl mx-auto text-lg">
                         See our certified components and high-precision logistics in action through our latest operational highlight videos.
                     </p>

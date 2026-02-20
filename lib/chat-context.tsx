@@ -30,7 +30,7 @@ interface ChatContextType {
 
 const ChatContext = createContext<ChatContextType | undefined>(undefined);
 
-const STORAGE_KEY = 'airbis_chat_conversations';
+const STORAGE_KEY = 'franklin_aviation_chat_conversations';
 
 export function ChatProvider({ children }: { children: React.ReactNode }) {
   const [conversations, setConversations] = useState<ChatConversation[]>([]);

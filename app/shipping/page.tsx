@@ -44,7 +44,7 @@ export default function ShippingPage() {
 
                     <h2 className="text-2xl font-bold text-[#0a1e3d] mt-8">Export Compliance</h2>
                     <p>
-                        Airbis complies with all US Export Administration Regulations (EAR) and International Traffic in Arms Regulations (ITAR). End-user certificates may be required for certain sensitive components.
+                        Franklin Aviation complies with all US Export Administration Regulations (EAR) and International Traffic in Arms Regulations (ITAR). End-user certificates may be required for certain sensitive components.
                     </p>
                 </div>
             </div>

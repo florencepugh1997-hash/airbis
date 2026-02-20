@@ -1,5 +1,5 @@
 /**
- * Airbis Color System
+ * Franklin Aviation Color System
  * Premium Navy Blue & White theme
  */
 
@@ -11,7 +11,7 @@ export const colors = {
     lighter: '#336699',
     dark: '#000f1f',
   },
-  
+
   // Neutral Colors
   white: '#ffffff',
   black: '#000000',
@@ -27,7 +27,7 @@ export const colors = {
     800: '#1f2937',
     900: '#111827',
   },
-  
+
   // Accent Colors
   accent: {
     blue: '#0066cc',
@@ -35,7 +35,7 @@ export const colors = {
     red: '#dc3545',
     yellow: '#ffc107',
   },
-  
+
   // Functional Colors
   success: '#28a745',
   warning: '#ffc107',

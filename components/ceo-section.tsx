@@ -18,7 +18,7 @@ export function CEOSection() {
                             <div className="relative h-full w-full overflow-hidden rounded-2xl shadow-2xl">
                                 <Image
                                     src="/ceo.jpg"
-                                    alt="Feng Liao - CEO of Airbis"
+                                    alt="Feng Liao - CEO of Franklin Aviation"
                                     fill
                                     className="object-cover transition-transform duration-700 hover:scale-105"
                                     priority
@@ -44,7 +44,7 @@ export function CEOSection() {
 
                             <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
                                 <p>
-                                    "Airbis was founded on a simple yet powerful premise: making the complex world of aerospace components accessible, reliable, and efficient. We understands that in aviation, there is no room for compromise."
+                                    "Franklin Aviation was founded on a simple yet powerful premise: making the complex world of aerospace components accessible, reliable, and efficient. We understands that in aviation, there is no room for compromise."
                                 </p>
                                 <p>
                                     "Under my leadership, we have transformed from a regional distributor into a global marketplace leader. Our commitment remains steadfast—ensuring every aircraft we serve has access to the highest quality, certified components delivered with speed and integrity."

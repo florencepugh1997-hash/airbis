@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     const generateEmailHtml = (isForAdmin: boolean) => `
         <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; padding: 0; color: #333; background-color: #f9f9f9;">
           <div style="background-color: #0a1e3d; padding: 40px 20px; text-align: center;">
-            <h1 style="color: #ffffff; margin: 0; letter-spacing: 4px; font-size: 28px;">AIRBIS</h1>
+            <h1 style="color: #ffffff; margin: 0; letter-spacing: 4px; font-size: 28px;">FRANKLIN AVIATION</h1>
             <p style="color: #60a5fa; font-size: 12px; margin-top: 5px; text-transform: uppercase; font-weight: bold; letter-spacing: 2px;">Premium Aircraft Components</p>
           </div>
           
@@ -111,7 +111,7 @@ export async function POST(req: Request) {
             <p style="margin-bottom: 10px; color: #ffffff;">Precision. Reliability. Safety.</p>
             <p style="margin-bottom: 20px;">If you have any questions, please contact our 24/7 technical support desk.</p>
             <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-                <p>&copy; ${new Date().getFullYear()} Airbis Components. All rights reserved.</p>
+                <p>&copy; ${new Date().getFullYear()} Franklin Aviation Components. All rights reserved.</p>
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@ export async function POST(req: Request) {
     // Send to Customer
     console.log(`[Email API] Sending confirmation to customer: ${customer.email}`);
     await transporter.sendMail({
-      from: `"Airbis Components" <${process.env.FROM_EMAIL}>`,
+      from: `"Franklin Aviation Components" <${process.env.FROM_EMAIL}>`,
       to: customer.email,
       subject: `Order Confirmation - #${orderNumber}`,
       html: generateEmailHtml(false),
@@ -129,7 +129,7 @@ export async function POST(req: Request) {
     // Send to Admin (Kevinfeige7110@gmail.com)
     console.log('[Email API] Sending notification to admin');
     await transporter.sendMail({
-      from: `"Airbis System" <${process.env.FROM_EMAIL}>`,
+      from: `"Franklin Aviation System" <${process.env.FROM_EMAIL}>`,
       to: "franklinaviation490@gmail.com",
       subject: `NEW ORDER ALERT - #${orderNumber}`,
       html: generateEmailHtml(true),

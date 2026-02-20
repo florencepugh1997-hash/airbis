@@ -18,12 +18,12 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Airbis - Premium Aircraft Components Marketplace',
+  title: 'Franklin Aviation - Premium Aircraft Components Marketplace',
   description: 'Premium aerospace procurement platform offering certified aircraft parts, fast global shipping, and secure payments.',
   generator: 'v0.app',
   keywords: 'aerospace, aircraft, parts, components, procurement, marketplace',
   openGraph: {
-    title: 'Airbis - Premium Aircraft Components Marketplace',
+    title: 'Franklin Aviation - Premium Aircraft Components Marketplace',
     description: 'The premier destination for certified aircraft components and aerospace parts.',
     type: 'website',
   },

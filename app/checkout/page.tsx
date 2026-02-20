@@ -382,7 +382,7 @@ export default function CheckoutPage() {
                             </div>
 
                             <p className="text-[10px] text-center text-muted-foreground mt-6 uppercase tracking-widest">
-                                Secure Checkout Powered by Airbis
+                                Secure Checkout Powered by Franklin Aviation
                             </p>
                         </div>
                     </div>

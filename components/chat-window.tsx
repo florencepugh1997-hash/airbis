@@ -67,7 +67,7 @@ export function ChatWindow({ isOpen, onClose }: ChatWindowProps) {
       {/* Header */}
       <div className="flex items-center justify-between bg-[#0a1e3d] text-white px-5 py-4">
         <div>
-          <h3 className="font-semibold text-base">Airbis Support</h3>
+          <h3 className="font-semibold text-base">Franklin Aviation Support</h3>
           <p className="text-xs text-blue-200">We typically reply in minutes</p>
         </div>
         <button
@@ -86,7 +86,7 @@ export function ChatWindow({ isOpen, onClose }: ChatWindowProps) {
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Send size={28} className="text-blue-500" />
               </div>
-              <p className="text-gray-600 text-sm font-medium mb-1">Welcome to Airbis Support</p>
+              <p className="text-gray-600 text-sm font-medium mb-1">Welcome to Franklin Aviation Support</p>
               <p className="text-gray-400 text-xs">Start a conversation with our team</p>
             </div>
           </div>

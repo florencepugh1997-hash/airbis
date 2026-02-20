@@ -13,7 +13,7 @@ export default function FAQPage() {
                     <AccordionItem value="item-1">
                         <AccordionTrigger className="text-lg font-semibold text-[#0a1e3d]">Are your parts certified?</AccordionTrigger>
                         <AccordionContent className="text-gray-600">
-                            Yes, absolutely. Every component listed on Airbis comes with full traceability and certification tags (FAA 8130-3, EASA Form 1, or equivalent). We strictly vet all suppliers to ensure compliance with international aviation standards.
+                            Yes, absolutely. Every component listed on Franklin Aviation comes with full traceability and certification tags (FAA 8130-3, EASA Form 1, or equivalent). We strictly vet all suppliers to ensure compliance with international aviation standards.
                         </AccordionContent>
                     </AccordionItem>
 
